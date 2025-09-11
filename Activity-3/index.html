@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corporate Solutions - Login</title>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Login</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
-        .min-vh-100 {
+            background-image: url('./galazy.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-shadow {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
+
 <body>
 
-<!-- Login Page Content -->
-<div class="min-vh-100 d-flex align-items-center justify-content-center p-4">
-    <div class="card p-4 p-md-5 rounded-4 shadow" style="max-width: 400px; width: 100%;">
-        <div class="text-center mb-4">
-            <svg class="h-16 w-16 mx-auto text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="height: 64px; width: 64px;">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21.75a2.25 2.25 0 0 0 2.25 2.25h15a2.25 2.25 0 0 0 2.25-2.25v-15a2.25 2.25 0 0 0-2.25-2.25h-15a2.25 2.25 0 0 0-2.25 2.25v15ZM4.5 9h15a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-.75.75H4.5a.75.75 0 0 1-.75-.75V9.75a.75.75 0 0 1 .75-.75Z" />
-            </svg>
-            <h1 class="h3 fw-bold mt-3 text-dark">Welcome</h1>
-            <p class="text-muted mt-2">Sign in to your account</p>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="glass-card p-4 p-md-5 text-white">
+                    <h2 class="text-center fw-bold mb-4 text-shadow">Welcome!</h2>
+                    <form action="landing-page.html">
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-shadow">Email address</label>
+                            <input type="email" class="form-control glass-card" id="email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label text-shadow">Password</label>
+                            <input type="password" class="form-control glass-card" id="password" required>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <!-- Form redirects to the landing page upon submission -->
-        <form id="login-form" action="landing-page.html" class="mt-4">
-            <div class="mb-3">
-                <label for="email" class="visually-hidden">Email address</label>
-                <input id="email" name="email" type="email" autocomplete="email" required class="form-control" placeholder="Email address">
-            </div>
-            <div class="mb-4">
-                <label for="password" class="visually-hidden">Password</label>
-                <input id="password" name="password" type="password" autocomplete="current-password" required class="form-control" placeholder="Password">
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary w-100 py-3">
-                    Sign in
-                </button>
-            </div>
-        </form>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
