@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Login</title>
+    <!-- Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Custom Styles for Pixel Theme -->
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #1a1a2e;
+            color: #e6e6e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .pixel-card {
+            background-color: #2e2e4f;
+            padding: 30px;
+            border: 5px solid #0f0f2d;
+            box-shadow: 
+                8px 8px 0px 0px #0f0f2d,
+                16px 16px 0px 0px #222244;
+            max-width: 400px;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 10;
+        }
+        .pixel-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 
+                12px 12px 0px 0px #0f0f2d,
+                20px 20px 0px 0px #222244;
+        }
+        h2 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #0f0f2d;
+        }
+        .pixel-input, .pixel-button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #44446e;
+            border: 3px solid #0f0f2d;
+            color: #e6e6e6;
+            font-family: 'Press Start 2P', cursive;
+            -webkit-appearance: none;
+            box-shadow: 4px 4px 0px 0px #0f0f2d;
+            transition: all 0.1s linear;
+        }
+        .pixel-input:focus {
+            outline: none;
+            box-shadow: 6px 6px 0px 0px #0f0f2d;
+            transform: translate(-2px, -2px);
+        }
+        .pixel-button {
+            background-color: #64ffda;
+            color: #0f0f2d;
+            cursor: pointer;
+            text-shadow: 1px 1px #0f0f2d;
+        }
+        .pixel-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #0f0f2d;
+        }
+        .error-message {
+            color: #ff6464;
+            text-align: center;
+            font-size: 0.7rem;
+            margin-top: 15px;
+            display: none;
+        }
+        .d-none {
+            display: none;
+        }
+        /* Sprite GIF Styling */
+        .pixel-sprite {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 100px; /* Adjust size as needed */
+            height: 100px;
+            background-image: url('https://i.pinimg.com/originals/f6/4f/9d/f64f9d4b3b84f3c7d6b3b5c3b1e3b3c3.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: move-sprite 5s infinite linear;
+        }
+        @keyframes move-sprite {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(calc(100vw - 140px)); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- A simple animated pixel sprite -->
+    <div class="pixel-sprite"></div>
+
+    <div class="pixel-card">
+        <h2>Welcome!</h2>
+        <p style="font-size: 0.8rem; text-align: center; margin-bottom: 20px;">Sign in to view the portfolio.</p>
+
+        <form id="login-form">
+            <div>
+                <label for="username" style="font-size: 0.8rem;">Username</label>
+                <input type="text" id="username" name="username" required class="pixel-input">
+            </div>
+            <div>
+                <label for="password" style="font-size: 0.8rem;">Password</label>
+                <input type="password" id="password" name="password" required class="pixel-input">
+            </div>
+            <button type="submit" class="pixel-button">
+                Log In
+            </button>
+        </form>
+
+        <div id="error-message" class="error-message d-none">
+            Invalid username or password. Please try again.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            
+            if (username === 'admin' && password === 'admin') {
+                window.location.href = 'landing-page.html';
+            } else {
+                errorMessage.classList.remove('d-none');
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

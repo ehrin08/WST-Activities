@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Portfolio</title>
+    <!-- Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Custom Styles for Pixel Theme -->
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #1a1a2e;
+            color: #e6e6e6;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+        a {
+            color: #64ffda;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #aaffea;
+        }
+        .pixel-nav {
+            background-color: #2e2e4f;
+            border-bottom: 5px solid #0f0f2d;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pixel-nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 0.8rem;
+        }
+        .pixel-button {
+            background-color: #64ffda;
+            color: #0f0f2d;
+            border: 3px solid #0f0f2d;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-shadow: 1px 1px #0f0f2d;
+            box-shadow: 4px 4px 0px 0px #0f0f2d;
+            transition: all 0.1s linear;
+        }
+        .pixel-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #0f0f2d;
+        }
+        .pixel-section {
+            padding: 50px 20px;
+            text-align: center;
+            position: relative; /* For sprites */
+        }
+        .pixel-hero {
+            background-color: #1a1a2e;
+            overflow: hidden;
+        }
+        .pixel-heading {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px #0f0f2d;
+        }
+        .pixel-subheading {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .pixel-card-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .pixel-card {
+            background-color: #2e2e4f;
+            padding: 20px;
+            border: 5px solid #0f0f2d;
+            box-shadow: 
+                8px 8px 0px 0px #0f0f2d;
+            max-width: 300px;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+        .pixel-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 
+                12px 12px 0px 0px #0f0f2d;
+        }
+        .pixel-text {
+            font-size: 0.8rem;
+        }
+
+        /* Sprite GIF Styling for Portfolio */
+        .hero-sprite {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjVpbmx5OHQ2Nm84ajZ5N3c5N2V6Z3Vhb3V6d250dDZ6ZjdxZ2s4NiZlcD12MV9pbnRlcm5hbF9naWZfY2F0cyZjdD1n/xT0gWvW9sN7G/giphy.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: run-cycle 2s infinite;
+        }
+        @keyframes run-cycle {
+            0%, 100% {
+                transform: translateX(-50%);
+            }
+            50% {
+                transform: translateX(50vw);
+            }
+        }
+        .project-sprite {
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin: 0 auto 10px;
+            background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3NlY296bGFoOGVkNG9tN3k0bW1rdmd0aW15eWR1eW13d2tneDk2b254ZWFydjV6amE1ZzN1dHZpcjZtZyZlcD12MV9pbnRlcm5hbF9naWZfY2F0cyZjdD1n/t0YpXz3Wf35p7y9m/giphy.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .footer-sprite {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmQ1b2JtdTF3a2xrdGdzY3c1ajc3ZGVvY3h0eDVrOXN1YzB6eXNyZXVvbmx0czJtZ2xnaXl6bW5vdmE4ayZlcD12MV9pbnRlcm5hbF9naWZfY2F0cyZjdD1n/l2SpY68k7gD7G2184/giphy.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: jump 1s infinite;
+        }
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="pixel-nav">
+        <a class="pixel-heading" style="font-size: 1.5rem;" href="#">PXL.io</a>
+        <div class="pixel-nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+        </div>
+        <button id="logout-button" class="pixel-button">Log Out</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pixel-section pixel-hero">
+        <h1 class="pixel-heading">Hello, I'm Jane Doe</h1>
+        <p class="pixel-subheading">A passionate web developer creating beautiful and functional web experiences.</p>
+        <a href="#projects" class="pixel-button">View My Work</a>
+        <!-- A running pixel sprite GIF -->
+        <div class="hero-sprite"></div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="pixel-section" style="background-color: #2e2e4f;">
+        <h2 class="pixel-heading" style="font-size: 1.5rem;">About Me</h2>
+        <div class="pixel-text" style="max-width: 600px; margin: auto;">
+            <p>
+                I am a dedicated front-end developer with a passion for building clean, user-friendly, and responsive web applications. I love turning complex problems into simple, beautiful designs.
+            </p>
+            <p>
+                My skills include HTML, CSS, JavaScript, and various frameworks like React and Vue. I'm always eager to learn new technologies and improve my craft.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="pixel-section">
+        <h2 class="pixel-heading" style="font-size: 1.5rem;">My Projects</h2>
+        <div class="pixel-card-container">
+            <!-- Project Card 1 -->
+            <div class="pixel-card">
+                <!-- A small pixel icon for projects -->
+                <div class="project-sprite"></div>
+                <h3 class="pixel-subheading" style="font-size: 1rem;">Project One</h3>
+                <p class="pixel-text">A simple web application built to manage daily tasks and enhance productivity.</p>
+                <a href="#" class="pixel-button" style="margin-top: 20px;">View Project</a>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="pixel-card">
+                <div class="project-sprite"></div>
+                <h3 class="pixel-subheading" style="font-size: 1rem;">Project Two</h3>
+                <p class="pixel-text">An e-commerce prototype showcasing a modern, responsive design and user flow.</p>
+                <a href="#" class="pixel-button" style="margin-top: 20px;">View Project</a>
+            </div>
+            <!-- Project Card 3 -->
+            <div class="pixel-card">
+                <div class="project-sprite"></div>
+                <h3 class="pixel-subheading" style="font-size: 1rem;">Project Three</h3>
+                <p class="pixel-text">A personal blog platform with a minimalist design and a focus on content readability.</p>
+                <a href="#" class="pixel-button" style="margin-top: 20px;">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer with a sprite -->
+    <footer class="pixel-section" style="padding-top: 20px; padding-bottom: 20px; background-color: #2e2e4f; border-top: 5px solid #0f0f2d;">
+        <div class="pixel-text">
+            © 2024 Jane Doe. All rights reserved.
+        </div>
+        <!-- A small jumping pixel sprite -->
+        <div class="footer-sprite"></div>
+    </footer>
+
+    <script>
+        document.getElementById('logout-button').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
